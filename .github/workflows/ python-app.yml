@@ -26,6 +26,6 @@ jobs:
           make lint
       - name: Test with pytest
         run: |
-          pytest --cov-report=xml
+          make test
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
