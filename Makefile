@@ -23,8 +23,6 @@ clean-pyc:
 
 lint:
 	SKIP=no-commit-to-branch pre-commit run -a -v
-	flake8 pygot tests
-	isort setup.py pygot/ tests/
 
 test:
 	python setup.py test
