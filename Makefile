@@ -6,6 +6,8 @@ help:
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "lint - check style with flake8"
 	@echo "test - package with pytest"
+	@echo "release - package and upload a release"
+	@echo "dist - package"
 
 clean: clean-build clean-pyc
 
@@ -26,3 +28,10 @@ lint:
 
 test:
 	python setup.py test
+
+dist: clean
+	python setup.py sdist
+	python setup.py bdist_wheel
+
+release: dist
+	twine upload dist/*
