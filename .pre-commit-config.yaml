@@ -18,4 +18,4 @@ repos:
         entry: flake8
         language: system
         types: [python]
-        args: ["--ignore=E501,W503"]
+        args: ["--ignore=E501,W503,F811"]
