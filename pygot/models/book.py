@@ -1,13 +1,4 @@
-# from pygot.api import create_api
 from marshmallow import Schema, fields, post_load
-
-# api = create_api()
-
-# request = api.books.list(params={"name": "A Game of Thrones"}).body
-# request = api.books.list().body
-
-
-# books = BookSchema(many=True).load(request)
 
 
 class Book:
@@ -43,22 +34,6 @@ class Book:
 
 class BookSchema(Schema):
     url = fields.Str()
-    url = fields.Str()
-    name = fields.Str()
-    isbn = fields.Str()
-    authors = fields.List(fields.Str())
-    numberOfPages = fields.Int()
-    publisher = fields.Str()
-    country = fields.Str()
-    mediaType = fields.Str()
-    released = fields.Date("%Y-%m-%dT%H:%M:%S")
-    characters = fields.List(fields.Str())
-    povCharacters = fields.List(fields.Str())
-
-    @post_load
-    def make_book(self, data, **kwargs):
-        return Book(**data)
-
     name = fields.Str()
     isbn = fields.Str()
     authors = fields.List(fields.Str())
