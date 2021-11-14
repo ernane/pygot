@@ -1,21 +1,48 @@
+# repos:
+#   - repo: local
+#     hooks:
+#       - id: black
+#         name: black
+#         entry: black
+#         language: system
+#         types: [python]
+#         args: ["--diff"]
+#       - id: isort
+#         name: isort
+#         entry: isort
+#         language: system
+#         types: [python]
+#         args: ["--check-only"]
+#       - id: flake8
+#         name: flake8
+#         entry: flake8
+#         language: system
+#         types: [python]
+#         args: ["--ignore=E501,W503,F811"]
+
 repos:
-  - repo: local
+  - repo: https://github.com/psf/black
+    rev: 21.9b0
     hooks:
       - id: black
-        name: black
-        entry: black
-        language: system
-        types: [python]
-        args: ["--diff"]
-      - id: isort
-        name: isort
-        entry: isort
-        language: system
-        types: [python]
-        args: ["--check-only"]
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
       - id: flake8
-        name: flake8
-        entry: flake8
-        language: system
-        types: [python]
-        args: ["--ignore=E501,W503,F811"]
+
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.9.3
+    hooks:
+      - id: isort
+        additional_dependencies: [toml]
+        exclude: ^.*/?setup\.py$
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^tests/.*/fixtures/.*
+      - id: end-of-file-fixer
+        exclude: ^tests/.*/fixtures/.*
+      - id: debug-statements

@@ -24,10 +24,10 @@ clean-pyc:
 	@find . -iname '.coverage' -delete
 
 lint:
-	SKIP=no-commit-to-branch pre-commit run -a -v
+	pre-commit run --all --verbose
 
 test:
-	python setup.py test
+	poetry run pytest
 
 dist: clean
 	python setup.py sdist
