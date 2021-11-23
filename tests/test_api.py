@@ -1,6 +1,8 @@
 import pytest
 from simple_rest_client.resource import Resource
 
+from pygot.models.book import BookSchema
+
 
 def test_get_api_instance(api):
     assert api.api_root_url == "https://www.anapioficeandfire.com/api"
@@ -39,6 +41,22 @@ def test_request_api_books_actions(
     assert response.status_code == status
     assert response.method == method
     assert url in response.url
+
+
+@pytest.mark.parametrize(
+    "url,method,status,action,args,kwargs",
+    [
+        ("/books/1", "GET", 200, "show", 1, {}),
+    ],
+)
+def test_request_api_book(httpserver, url, method, status, action, args, kwargs, api):
+    httpserver.expect_request(url, method=method).respond_with_json(
+        {"success": True}, status=status
+    )
+
+    response = getattr(api.books, action)(args, **kwargs)
+
+    assert BookSchema().validate(response.body) == {}
 
 
 @pytest.mark.parametrize(
