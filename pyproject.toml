@@ -28,7 +28,7 @@ testpaths = ["tests"]
 line_length = 100
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.7"
 simple-rest-client = "^1.1.1"
 marshmallow = "^3.14.0"
 
