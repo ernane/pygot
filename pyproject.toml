@@ -2,8 +2,23 @@
 name = "pygot"
 version = "0.2.0"
 description = "A Python library for https://anapioficeandfire.com"
-authors = ["Ernane Sena"]
-license = "MIT License"
+authors = ["Ernane Sena <ernane.sena@gmail.com>"]
+license = "BSD-2-Clause"
+readme = "README.md"
+homepage = "https://github.com/ernane/pygot"
+repository = "https://github.com/ernane/pygot"
+keywords = ["got", "library", "python"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Software Development :: Libraries",
+]
+include = [
+    "LICENSE",
+]
 
 [tool.pytest.ini_options]
 addopts = "-vvv --cov=pygot --cov-report=term-missing --cov-report=xml"
