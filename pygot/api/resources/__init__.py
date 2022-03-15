@@ -20,7 +20,7 @@ def fetch_resources(api, endpoint, schema):
         next_link = response.links.get("next", None)
         if next_link:
             next = True
-            yield from response.json()
+            yield from schema.load(response.json())
         else:
             next = False
 

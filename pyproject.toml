@@ -20,8 +20,11 @@ include = [
     "LICENSE",
 ]
 
+[tool.poetry.scripts]
+pygot = "pygot.cli:cli"
+
 [tool.pytest.ini_options]
-addopts = "-vvv --cov=pygot --cov-report=term-missing --cov-report=xml"
+addopts = "-vvv --cov=pygot --cov-report=term-missing --cov-report=xml -p no:warnings"
 testpaths = ["tests"]
 
 [tool.isort]
@@ -31,13 +34,14 @@ line_length = 100
 python = "^3.7"
 simple-rest-client = "^1.1.1"
 marshmallow = "^3.14.0"
+click = "^8.0.4"
 
 [tool.poetry.dev-dependencies]
 black = "^21.9b0"
 flake8 = "^4.0.1"
 pre-commit = "^2.15.0"
 isort = "^5.9.3"
-ipython = "^7.28.0"
+ipython = "^7.32.0"
 pytest = "^6.2.5"
 pytest-cov = "^3.0.0"
 pytest-httpserver = "^1.0.2"
